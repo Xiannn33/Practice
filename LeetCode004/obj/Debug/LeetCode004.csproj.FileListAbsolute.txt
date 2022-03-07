@@ -1,7 +1,0 @@
-C:\C#Project\LeetCode\LeetCode004\bin\Debug\LeetCode004.exe.config
-C:\C#Project\LeetCode\LeetCode004\bin\Debug\LeetCode004.exe
-C:\C#Project\LeetCode\LeetCode004\bin\Debug\LeetCode004.pdb
-C:\C#Project\LeetCode\LeetCode004\obj\Debug\LeetCode004.csprojAssemblyReference.cache
-C:\C#Project\LeetCode\LeetCode004\obj\Debug\LeetCode004.csproj.CoreCompileInputs.cache
-C:\C#Project\LeetCode\LeetCode004\obj\Debug\LeetCode004.exe
-C:\C#Project\LeetCode\LeetCode004\obj\Debug\LeetCode004.pdb
