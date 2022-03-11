@@ -41,7 +41,7 @@ namespace LeetCode005
     {
         static void Main(string[] args)
         {
-            string s = "babad";
+            string s = "cbbd";
             Solution so = new Solution();
             Console.WriteLine(so.LongestPalindrome(s));
             Console.ReadKey();
