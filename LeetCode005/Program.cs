@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 using System.Collections;
 
 //给你一个字符串 s，找到 s 中最长的回文子串。
-//中心扩散
+
 namespace LeetCode005
 {
+    //中心扩散
     public class Solution
     {
         public string LongestPalindrome(string s)
@@ -37,12 +38,56 @@ namespace LeetCode005
             return result;
         }
     }
+
+    //动态规划
+    public class Solution1
+    {
+        public string LongestPalindrome(string s)
+        {
+            if (s.Length < 2)
+                return s;
+            int begin = 0;
+            int maxLength = 0;
+            bool[,] dp = new bool[s.Length, s.Length];
+            for (int i = 0; i < s.Length; i++)
+            {
+                dp[i, i] = true;
+            }
+            for (int L = 2; L <= s.Length; L++)
+            {
+                for (int i = 0; i < s.Length; i++)
+                {
+                    int j = L + i - 1;
+                    if (j >= s.Length)
+                        break;
+                    if (s[i] != s[j])
+                        dp[i, j] = false;
+                    else
+                    {
+                        if (j - i < 3)
+                            dp[i, j] = true;
+                        else
+                        {
+                            dp[i, j] = dp[i + 1, j - 1];
+                        }
+                    }
+                    if (dp[i, j] && j - i + 1 > maxLength)
+                    {
+                        maxLength = j - i + 1;
+                        begin = i;
+                    }
+                }
+            }
+            return s.Substring(begin, maxLength);
+        }
+
+    }
     class Program
     {
         static void Main(string[] args)
         {
-            string s = "cbbd";
-            Solution so = new Solution();
+            string s = "babac";
+            Solution1 so = new Solution1();
             Console.WriteLine(so.LongestPalindrome(s));
             Console.ReadKey();
         }

@@ -1,0 +1,7 @@
+C:\C#Project\LeetCode\LeetCode010\bin\Debug\LeetCode010.exe.config
+C:\C#Project\LeetCode\LeetCode010\bin\Debug\LeetCode010.exe
+C:\C#Project\LeetCode\LeetCode010\bin\Debug\LeetCode010.pdb
+C:\C#Project\LeetCode\LeetCode010\obj\Debug\LeetCode010.csproj.CoreCompileInputs.cache
+C:\C#Project\LeetCode\LeetCode010\obj\Debug\LeetCode010.exe
+C:\C#Project\LeetCode\LeetCode010\obj\Debug\LeetCode010.pdb
+C:\C#Project\LeetCode\LeetCode010\obj\Debug\LeetCode010.csprojAssemblyReference.cache

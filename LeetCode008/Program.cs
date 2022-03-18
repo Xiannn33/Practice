@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 /*
- * 请你来实现一个 myAtoi(string s) 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C/C++ 中的 atoi 函数）。
+请你来实现一个 myAtoi(string s) 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C/C++ 中的 atoi 函数）。
 函数 myAtoi(string s) 的算法如下：
     读入字符串并丢弃无用的前导空格
     检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。 如果两者都不存在，则假定结果为正。
@@ -20,20 +17,40 @@ namespace LeetCode008
     {
         public int MyAtoi(string s)
         {
-            int sum = 1;
-            if (s.Contains("-"))
+            if (s.Length == 0) return 0;
+            long sum = 1;
+            StringBuilder sb = new StringBuilder();
+            s = s.Trim();
+            if (s.Length == 0) return 0;
+            if (s[0] == '-' || s[0] == '+')
             {
-                sum = -1;   
+                sum = s[0] == '-' ? -1 : 1;
+                s = s.Remove(0, 1);
             }
-            string pattern = @"\d";
-            MatchCollection mc = Text.RegularExpressions.Regex.Matches(s, pattern);
-            StringBuilder stringBuilder = new StringBuilder();
-            foreach (Match m in mc)
+            if (s.Length == 0) return 0;
+            for (int i = 0; i < s.Length; i++)
             {
-                stringBuilder.Append(m);
+                if (s[i] >= '0' && s[i] <= '9')
+                {
+                    sb.Append(s[i]);
+                    if (sum * long.Parse(sb.ToString()) > int.MaxValue)
+                    {
+                        return int.MaxValue;
+                    }
+                    else if (sum * long.Parse(sb.ToString()) < int.MinValue)
+                    {
+                        return int.MinValue;
+                    }
+                }
+                else
+                {
+                    if (sb.Length == 0)
+                        sb.Append(0);
+                    break;
+                }
             }
-            sum = sum * int.Parse(stringBuilder.ToString());
-            return sum;
+            sum = sum * long.Parse(sb.ToString());
+            return (int)sum;
         }
     }
     class Program
@@ -41,7 +58,7 @@ namespace LeetCode008
         static void Main(string[] args)
         {
             Solution so = new Solution();
-            Console.WriteLine(so.MyAtoi("4193 with words"));
+            Console.WriteLine(so.MyAtoi("-2147483648"));
             Console.ReadKey();
         }
     }
